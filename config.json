@@ -1,0 +1,5 @@
+{
+    "clientId": "BotID",
+    "guildId": "GuildIdWhereToGenerateCommands",
+    "token": "BotToken"
+}
