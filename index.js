@@ -6,6 +6,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const { token } = require("./config.json");
 const meme = require('./commands/meme');
+const userinfo = require('./commands/userinfo');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
@@ -59,6 +60,7 @@ client.on('interactionCreate', interaction => {
         })
 	}
 });
+
 
 function request(url, callback) {
     return new Promise((resolve, reject) => {
