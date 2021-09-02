@@ -11,7 +11,7 @@ module.exports = {
 		console.log(typeof user)
 		const em = new MessageEmbed().setTitle('Infoa userista siittä').setDescription("Bliugeli blaugli");
 		console.log(Object.values(user))
-		em.addField("Käyttäjänimi", `${user.GuildMember}#${user.discriminator}`, false)
+		em.addField("Käyttäjänimi", `${user.id}#${user.tag}`, false)
 		em.addField("mutsis ", " ä", false)
 		em.addField("mutsis ", " ä", false)
 		em.addField("mutsis ", " ä", false)
