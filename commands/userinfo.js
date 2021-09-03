@@ -8,7 +8,8 @@ module.exports = {
 		.addMentionableOption(option => option.setName('mentionable').setDescription('Mention something')),
 	async execute(interaction) {
 		const user = interaction.options.getMentionable('mentionable')
-		console.log(typeof user)
+		JSON.stringify(user)
+		console.log(user)
 		const em = new MessageEmbed().setTitle('Infoa userista siittä').setDescription("Bliugeli blaugli");
 		console.log(Object.values(user))
 		em.addField("Käyttäjänimi:", `${user.username}#${user.discriminator}`, false)

@@ -4,7 +4,7 @@ const { Client, Collection, Intents, Message } = require("discord.js");
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-const { token } = require("./config.json");
+const { token, prefix } = require("./config.json");
 const meme = require('./commands/meme');
 const userinfo = require('./commands/userinfo');
 
