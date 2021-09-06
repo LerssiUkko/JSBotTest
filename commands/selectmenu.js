@@ -49,6 +49,9 @@ module.exports = {
 					]),
 			);
             await interaction.reply({ content: 'Bliugeli blau', components: [row] });
+			if (interaction.customId === "ebinkkona") {
+				interaction.member.send(`valitsit: ${interaction.values}`)
+			}
 
 	},
 };

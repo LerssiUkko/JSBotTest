@@ -53,6 +53,7 @@ fs.readdir("./komennot/", (err, files) => {
   
 
 //slash command handling
+
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
@@ -71,15 +72,14 @@ client.on('interactionCreate', async interaction => {
 //some random shit
 client.on("messageCreate", async message => {
 	console.log(`${message.author.username}: ${message.content} in: ${message.guild}`)
+	fs.appendFile('./log.txt', `${message.author.username}: ${message.content} in: ${message.guild}\n`, err => {
+		if (err) {
+		  console.error(err)
+		  return
+		}
+	  })
+	  
 })
-
-client.on('interactionCreate', interaction => {
-	if (!interaction.isSelectMenu()) return;
-
-	if (interaction.customId === "ebinkkona") {
-		interaction.member.send(`valitsit: ${interaction.values}`)
-	}
-});
 
 client.on('interactionCreate', interaction => {
 	if (!interaction.isButton()) return;
