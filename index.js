@@ -7,6 +7,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const { token, prefix } = require("./config.json");
 const meme = require('./commands/meme');
 const userinfo = require('./commands/userinfo');
+const config = require("./config.json");
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
@@ -24,6 +25,34 @@ client.on("ready", () => {
 });
 
 
+//event handling and prefix command handling
+client.config = config;
+
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    const event = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client));
+  });
+});
+
+
+client.komennot = new Collection();
+ 
+fs.readdir("./komennot/", (err, files) => {
+	if (err) return console.error(err);
+	files.forEach(file => {
+	  if (!file.endsWith(".js")) return;
+	  let props = require(`./komennot/${file}`);
+	  let commandName = file.split(".")[0];
+	  console.log(`Attempting to load command ${commandName}`);
+	  client.komennot.set(commandName, props);
+	});
+  });
+  
+
+//slash command handling
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
@@ -39,6 +68,7 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
+//some random shit
 client.on("messageCreate", async message => {
 	console.log(`${message.author.username}: ${message.content} in: ${message.guild}`)
 })
