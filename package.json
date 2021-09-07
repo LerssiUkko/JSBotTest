@@ -4,13 +4,16 @@
   "description": "Paskanen discord botti ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "LerssiUkko",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.21.4",
+    "cheerio": "^1.0.0-rc.10",
     "discord-api-types": "^0.22.0",
     "discord.js": "^13.1.0",
     "xmlhttprequest": "^1.8.0"

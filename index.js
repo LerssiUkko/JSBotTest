@@ -21,7 +21,7 @@ for (const file of commandFiles) {
 
 
 client.on("ready", () => {
-    console.log("Bot is loaded")
+    console.log("Bot loaded")
 });
 
 
