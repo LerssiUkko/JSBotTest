@@ -7,7 +7,7 @@ function EmbedMaker(message, title, description, color, fields = undefined, imag
     .setColor(color)
     .setTimestamp()
     .setAuthor(message.author.username, message.author.displayAvatarURL())
-    .setFooter("paskabotti", "https://s.yimg.com/os/creatr-uploaded-images/2021-02/572c4830-721d-11eb-bb63-96959c3b62f2")
+    .setFooter("paskabotti")
 
 
     if (fields) {
