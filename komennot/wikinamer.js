@@ -15,13 +15,8 @@ exports.run = (client, message, args) => {
   };
 
 function getheader(callback) {
-    axios
-	.get('https://fi.wikipedia.org/wiki/Toiminnot:Satunnainen_sivu')
-	.then((response) => {
-        console.log(response)
-	})
-	.catch((error) => {
-		console.error(error)
-	});
+  var response = axios.get('https://fi.wikipedia.org/wiki/Toiminnot:Satunnainen_sivu');
+  var $ = cheerio.load(response)
+  console.log($("h1").text())
 
 }
