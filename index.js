@@ -26,30 +26,30 @@ client.on("ready", () => {
 
 
 //event handling and prefix command handling
-client.config = config;
+//client.config = config;
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));
-  });
-});
+//fs.readdir("./events/", (err, files) => {
+//  if (err) return console.error(err);
+//  files.forEach(file => {
+//    const event = require(`./events/${file}`);
+//    let eventName = file.split(".")[0];
+//    client.on(eventName, event.bind(null, client));
+//  });
+//});
 
 
-client.komennot = new Collection();
+//client.komennot = new Collection();
  
-fs.readdir("./komennot/", (err, files) => {
-	if (err) return console.error(err);
-	files.forEach(file => {
-	  if (!file.endsWith(".js")) return;
-	  let props = require(`./komennot/${file}`);
-	  let commandName = file.split(".")[0];
-	  console.log(`Attempting to load command ${commandName}`);
-	  client.komennot.set(commandName, props);
-	});
-  });
+//fs.readdir("./komennot/", (err, files) => {
+//	if (err) return console.error(err);
+//	files.forEach(file => {
+//	  if (!file.endsWith(".js")) return;
+//	  let props = require(`./komennot/${file}`);
+//	  let commandName = file.split(".")[0];
+//	  console.log(`Attempting to load command ${commandName}`);
+//	  client.komennot.set(commandName, props);
+//	});
+//});
   
 
 //slash command handling
