@@ -7,7 +7,7 @@ const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
+	const command = (`./commands/${file}`);
 	console.log(`${file} loaded`)
 	commands.push(command.data.toJSON());
 }
@@ -17,7 +17,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 (async () => {
 	try {
 		await rest.put(
-			Routes.applicationCommands(clientId),
+			Routes.applicationCommands(clientId, guildId),
 			{ body: commands },
 		);
 

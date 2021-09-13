@@ -2,13 +2,17 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
+const { EmbedMaker } = require("../EmbedMaker");
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('meme')
 		.setDescription('Laittaa random reddit paska memen'),
 	async execute(interaction) {
 		request("https://meme-api.herokuapp.com/gimme", function(meme_url){
-            interaction.reply(meme_url)
+            EmbedMaker(interaction, "meem", "meem", "RANDOM", undefined, meme_url,)
+
+            interaction.reply({ embeds: [em] })
         })
 	},
 };
