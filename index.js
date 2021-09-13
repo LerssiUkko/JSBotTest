@@ -9,6 +9,7 @@ const meme = require('./commands/meme');
 const userinfo = require('./commands/userinfo');
 const config = require("./config.json");
 
+const { make_commands } = require("./gen_commands_module");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
 client.commands = new Collection();
@@ -69,6 +70,9 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
+client.on('guildCreate', async guild => {
+	await make_commands(guild.id)
+})
 //some random shit
 client.on("messageCreate", async message => {
 	console.log(`${message.author.username}: ${message.content} in: ${message.guild}`)
