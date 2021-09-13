@@ -70,9 +70,7 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-client.on('guildCreate', async guild => {
-	await make_commands(guild.id)
-})
+
 //some random shit
 client.on("messageCreate", async message => {
 	console.log(`${message.author.username}: ${message.content} in: ${message.guild}`)
