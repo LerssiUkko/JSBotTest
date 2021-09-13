@@ -1,12 +1,12 @@
 const { MessageEmbed } = require("discord.js");
 
-function EmbedMaker(message, title, description, color, fields = undefined, image_url = undefined) {
+function EmbedMaker(interaction, title, description, color, fields = undefined, image_url = undefined) {
     em = new MessageEmbed()
     .setTitle(title)
     .setDescription(description)
     .setColor(color)
     .setTimestamp()
-    .setAuthor(message.author.username, message.author.displayAvatarURL())
+    .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
     .setFooter("paskabotti")
 
 
@@ -18,7 +18,7 @@ function EmbedMaker(message, title, description, color, fields = undefined, imag
         em.setImage(image_url)
     }
 
-    console.log(message.author.displayAvatarURL())
+
 
     return em;
 };
