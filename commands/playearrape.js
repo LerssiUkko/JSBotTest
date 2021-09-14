@@ -48,7 +48,7 @@ module.exports = {
 
         void start();
 
-        await interaction.reply(`soitetaan ${resource.metadata.title}`)
+        await interaction.channel.send(`soitetaan ${resource.metadata.title}`)
 
 	},
 };
